@@ -1,28 +1,34 @@
-NAME = megaphone
+NAME = megaphone.exe
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
-INCLUDE = -I philo.h
 
 SRCS = megaphone.cpp
 
-OBJ =		$(SRCS:%.c=%.o)
+OBJ = $(SRCS:%.cpp=%.o)
+
+ifeq ($(OS),Windows_NT)
+    RM = del /Q
+    RMDIR = rmdir /S /Q
+else
+    RM = rm -f
+endif
 
 all: ${NAME}
 
-srcs/%.o: srcs/%.c
-	$(CC) $(CFLAGS) $(INCLUDE) -O2 -c $< -o $(<:%.c=%.o)
+%.o: %.cpp
+	$(CC) $(CFLAGS) -O2 -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ) 
+	$(RM) $(OBJ)
 
-fclean: clean
-	rm -f $(NAME) 
-	
+fclean:
+	$(RM) $(OBJ) $(NAME)
+
 re:	fclean all
 
 .PHONY: all clean fclean re
