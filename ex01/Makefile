@@ -1,10 +1,11 @@
-NAME = megaphone.exe
+NAME = PhoneBook
 
 CC = c++
 
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
+INCLUDE = contact.hpp phonebook.hpp
 
-SRCS = megaphone.cpp
+SRCS = phonebook.cpp
 
 OBJ = $(SRCS:%.cpp=%.o)
 
@@ -21,7 +22,7 @@ all: ${NAME}
 	$(CC) $(FLAGS) -O2 -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(INCLUDE) $(OBJ) -o $(NAME)
 
 clean:
 	$(RM) $(OBJ)
