@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 
+# include "Contact.hpp"
+
 class PhoneBook
 {
 //Methodes:

@@ -10,7 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-class PhoneBook
-{
+#include "PhoneBook.hpp"
 
-};
+PhoneBook::Phonebook()
+{
+}
+
+PhoneBook::~Phonebook()
+{
+}
+
+int     getPhoneBookSize()
+{
+    PhoneBook.size
+}
+
+void    addContacts()
+{}
+
+void    searchContacts(int index)
+{
+    cout << index << " " << Contact.
+}
+
+void    exitPhoneBook()
+{}
