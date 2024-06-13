@@ -3,9 +3,13 @@ NAME = PhoneBook
 CC = c++
 
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
-INCLUDE = contact.hpp phonebook.hpp
 
-SRCS = phonebook.cpp
+INCLUDES = 	include/Contact.hpp \
+			include/PhoneBook.hpp
+
+SRCS = 	srcs/PhoneBook.cpp \
+		srcs/Contact.cpp \
+		srcs/main.cpp
 
 OBJ = $(SRCS:%.cpp=%.o)
 
@@ -18,11 +22,11 @@ endif
 
 all: ${NAME}
 
-%.o: %.cpp
-	$(CC) $(FLAGS) -O2 -c $< -o $@
+srcs/%.o: %.cpp
+	$(CC) $(FLAGS) $(INCLUDES) -O2 -c $< -o $< -o $(<:%.cpp=%.o)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(INCLUDE) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	$(RM) $(OBJ)

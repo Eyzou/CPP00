@@ -6,7 +6,7 @@
 /*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:14:18 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/13 10:23:16 by ehamm            ###   ########.fr       */
+/*   Updated: 2024/06/13 14:39:52 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ class Contact
 //Methodes:
     Contact(); //constructeur
     ~Contact(); //destructeur
-	void setInfos(std::string firstName,std::string lastName,std::string nickName,std::string phoneNumber,std::string darkestSecret);
-    std::string getFirstName();
+    std::string getInputs(std::string question);
+	void setInfos();
+	std::string getFirstName();
     std::string getLastName();
     std::string getNickName();
     std::string getPhoneNumber();
