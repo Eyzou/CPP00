@@ -1,4 +1,4 @@
-NAME = megaphone.exe
+NAME = megaphone
 
 CC = c++
 

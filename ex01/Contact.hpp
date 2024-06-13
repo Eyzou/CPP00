@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:14:18 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/12 14:14:18 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/13 10:23:16 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ class Contact
 //Methodes:
     Contact(); //constructeur
     ~Contact(); //destructeur
-    std::string getFirstName(std::string str);
-    std::string getLastName(std::string str);
-    std::string getNickName(std::string str);
-    std::string getPhoneNumber(std::string str);
-    std::string getDarkestSecret(std::string str);
+	void setInfos(std::string firstName,std::string lastName,std::string nickName,std::string phoneNumber,std::string darkestSecret);
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getNickName();
+    std::string getPhoneNumber();
+    std::string getDarkestSecret();
 
 // recevoir chaques infos
 
-//Attributs  (toujours prive - encapsulation):
+//Attributs  (toujours prive (private with m_(non static member variable)) - encapsulation):
     private:
 
     std::string m_firstName;

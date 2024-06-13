@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:26:36 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/12 14:26:36 by marvin           ###   ########.fr       */
+/*   Updated: 2024/06/13 11:33:45 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ class PhoneBook
 
     int     getPhoneBookSize();
     void    addContacts();
-    void    searchContacts(int index);
+    void    displayContacts();
     void    exitPhoneBook();
 
 
 //Attributs  (toujours prive - encapsulation):
     private:
 
-    Contact *m_contacts;
+    Contact *p_contacts;
     int m_size
 };
 
