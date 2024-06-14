@@ -42,7 +42,7 @@ std::string   Contact::getInputs(std::string question,std:: function<bool(char)>
             valid = true;
         else
         {
-            std::cin.clear(); // -clear errors flag (or cin.ignore(1000)) ?
+            std::cin.clear(); //reset the error flags of the input stream
             std::cout <<"Invalid input, please try again" << std::endl;
         }
     }
