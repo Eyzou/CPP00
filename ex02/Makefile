@@ -1,15 +1,12 @@
-NAME = PhoneBook
+NAME = Account
 
 CC = c++
 
 FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-INCLUDES = 	include/Contact.hpp \
-			include/PhoneBook.hpp
+INCLUDES = Account.hpp
 
-SRCS = 	srcs/PhoneBook.cpp \
-		srcs/Contact.cpp \
-		srcs/main.cpp
+SRCS = 	Account.cpp
 
 OBJ = $(SRCS:%.cpp=%.o)
 
