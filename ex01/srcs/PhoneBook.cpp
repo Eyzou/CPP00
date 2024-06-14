@@ -20,11 +20,6 @@ PhoneBook::~PhoneBook()
 {
 }
 
-// int     PhoneBook::getPhoneBookSize()
-// {
-//     PhoneBook.m_size;
-// }
-
 void    PhoneBook::addContacts()
 {
 	int i = 0 ;
@@ -33,13 +28,12 @@ void    PhoneBook::addContacts()
 	i++;
 }
 
-/*void   PhoneBook::displayContacts()
+void   PhoneBook::displayContacts()
 {
 	for(int i = 0; i < 8 ; i++)
-	{
 		this->m_contacts[i].view(i);
-	}
-}*/
+	std::cout << std::endl;
+}
 
 int    PhoneBook::validIndex(void)
 {

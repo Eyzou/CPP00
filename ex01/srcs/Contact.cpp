@@ -20,94 +20,83 @@ Contact::~Contact()
 {
 }
 
-std::string   Contact::getInputsName(std::string question)
+std::string   Contact::getInputs(std::string question,std:: function<bool(char)> validator, int len)
 {
-	std::string input="";
-	bool valid = false;
+    std::string input="";
+    bool valid = false;
 
-	while(!valid)
-	{
-		std::cout << question << std::endl;
-		std::getline(std::cin, input); 
-		if(std::cin.good() && !input.empty() && std::all_of(input.begin(), input.end(), ::isalpha))
-			valid = true;
-		else
-		{
-			std::cin.clear(); // -clear errors flag (or cin.ignore(1000)) ?
-			std::cout <<"Invalid input, please try again" << std::endl;
-		}
-	}
-	return(input);
-}
-
-std::string   Contact::getInputsNumber(std::string question)
-{
-	std::string input="";
-	bool valid = false;
-
-	while(!valid)
-	{
-		std::cout << question << std::endl;
-		std::getline(std::cin, input);
-		if(std::cin.good() && !input.empty() && std::all_of(input.begin(), input.end(), ::isdigit) && input.length() == 10)
-			valid = true;
-		else
-		{
-			std::cin.clear();
-			std::cout <<"Invalid input, please try again" << std::endl;
-		}
-	}
-	return(input);
+    while(!valid)
+    {
+        std::cout << question << std::endl;
+        std::getline(std::cin, input);
+        bool isValid = true;
+        for(char c : input)
+        {
+            if(!validator(c))
+            {
+                isValid = false;
+                break;
+            }
+        }
+        if(std::cin.good() && !input.empty() && isValid && (len == 0 || input.length() == len))
+            valid = true;
+        else
+        {
+            std::cin.clear(); // -clear errors flag (or cin.ignore(1000)) ?
+            std::cout <<"Invalid input, please try again" << std::endl;
+        }
+    }
+    return(input);
 }
 
 void	Contact::setInfos()
 {
-	this-> m_firstName = this->getInputsName("Please enter your First Name:");
-	this-> m_lastName = this->getInputsName("Please enter your Last Name:");
-	this-> m_nickName = this->getInputsName("Please enter your Nickmame:");
-	this-> m_phoneNumber = this->getInputsNumber("Please enter your Phone Number:");
-	this-> m_darkestSecret = this->getInputsName("Please enter your Darkest Secret:");
+	std::cin.ignore(); // a utiliesr pour cleaner le stdinput des input precedents super useful!!
+	this-> m_firstName = this->getInputs("Please enter your First Name:", ::isalpha);
+	this-> m_lastName = this->getInputs("Please enter your Last Name:", ::isalpha);
+	this-> m_nickName = this->getInputs("Please enter your Nickmame:", ::isalpha);
+	this-> m_phoneNumber = this->getInputs("Please enter your Phone Number:", ::isdigit,10);
+	this-> m_darkestSecret = this->getInputs("Please enter your Darkest Secret:", ::isprint);
 	std::cout << std::endl;
-}
-
-void	Contact::display(int index)
-{
-	if(this->m_firstName.empty() || this->m_lastName.empty() || this->m_nickName.empty())
-	{
-		std::cout << "No contact at this index, exiting the search command ..." << std::endl;
-		return;
-	}
-	std::cout << "Contact index: " << index << std::endl;
-	std::cout << "First Name: " << m_firstName << std::endl;
-	std::cout << "Last Name: " << m_lastName << std::endl;
-	std::cout << "Nick Name: " << m_nickName << std::endl;
 }
 
 void Contact::setIndex(int index)
 {
 	this->m_index = index;
 }
-std::string Contact::getFirstName()  
+
+std::string Contact::print(std::string str)
 {
-	return m_firstName;
+    if(str.length() > 10)
+    {
+        str.resize(9);
+        str.append(".");
+    }
+    return(str);
 }
 
-std::string Contact::getLastName()
+void	Contact::view(int index)
 {
-	return m_lastName;
+	if(this->m_firstName.empty() || this->m_lastName.empty() || this->m_nickName.empty())
+		return;
+    std::cout << "|" << std::setw(10) << "INDEX" << std::flush;
+	std::cout << "|" << std::setw(10) << "FIRST NAME"<< std::flush;
+	std::cout << "|" << std::setw(10) << "LAST NAME"<< std::flush;
+	std::cout << "|" << std::setw(10) << "NICK NAME"<< std::flush;
+	std::cout << "|" << std::endl ;
+	std::cout << "|" << std::setw(10) << index << std::flush;
+	std::cout << "|" << std::setw(10) << this->print(this->m_firstName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->print(this->m_lastName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->print(this->m_nickName) << std::flush;
+	std::cout << "|" << std::endl ;
 }
 
-std::string Contact::getNickName() 
+void	Contact::display(int index)
 {
-	return m_nickName;
-}
-
-std::string Contact::getPhoneNumber()
-{
-	return m_phoneNumber;
-}
-
-std::string Contact::getDarkestSecret() 
-{ 
-	return m_darkestSecret;
+	if(this->m_firstName.empty() || this->m_lastName.empty() || this->m_nickName.empty())
+		return;
+	std::cout << "Contact index: " << index << std::endl;
+	std::cout << "First Name: " << m_firstName << std::endl;
+	std::cout << "Last Name: " << m_lastName << std::endl;
+	std::cout << "Nick Name: " << m_nickName << std::endl;
 }

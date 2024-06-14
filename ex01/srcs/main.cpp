@@ -18,17 +18,22 @@ int main (int argc, char **argv)
     PhoneBook phonebook;
 	std::string input;
 
-	input = argv[1];
-	
-    while(input.compare("EXIT"))
-    {
-        if(input.compare("ADD") == 0)
-			phonebook.addContacts();
-        else if(input.compare("SEARCH") == 0)
-			phonebook.searchContacts();
-		std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
-    	std::cin >> input;
-    }
+	if(argc > 1)
+		input = argv[1];
+	while(input.compare("EXIT"))
+	   {
+			/*if(input.empty())
+				std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;*/
+	        if(input.compare("ADD") == 0)
+				phonebook.addContacts();
+	        else if(input.compare("SEARCH") == 0)
+	        {
+	        	phonebook.displayContacts();
+				phonebook.searchContacts();
+			}
+        	std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
+        	std::cin >> input;
+	    }
 	std::cout << "Ciao PhoneBook! See you later!" << std::endl;
 	return(EXIT_SUCCESS);
 }

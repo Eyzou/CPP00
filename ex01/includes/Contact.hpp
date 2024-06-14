@@ -19,32 +19,21 @@
 # include "../includes/main.hpp"
 
 # include <string>
+# include <functional>
 
 class Contact
 {
     public:
 
-//Methodes:
-    Contact(); //constructeur
-    ~Contact(); //destructeur
-    std::string getInputsName(std::string question);
-    std::string getInputsNumber(std::string question);
+    Contact();
+    ~Contact();
+    std::string getInputs(std::string question, std::function<bool(char)> validator, int len = 0);
 	void setInfos();
     void setIndex(int index);
-
-    //void view(int index);
+    void view(int index);
     void display(int index);
-    void searchContacts();
+	std::string print(std::string str);
 
-	std::string getFirstName();
-    std::string getLastName();
-    std::string getNickName();
-    std::string getPhoneNumber();
-    std::string getDarkestSecret();
-
-// recevoir chaques infos
-
-//Attributs  (toujours prive (private with m_(non static member variable)) - encapsulation):
     private:
 
     std::string m_firstName;
@@ -52,7 +41,7 @@ class Contact
     std::string m_nickName;
     std::string m_phoneNumber;
     std::string m_darkestSecret;
-    int       m_index;
+    int         m_index;
 
 };
 

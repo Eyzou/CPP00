@@ -10,7 +10,7 @@
 
 # include <iostream>
 # include <string>
-# include <algorithm>
 # include <cctype>
+# include <iomanip>
 
 #endif //MAIN_HPP

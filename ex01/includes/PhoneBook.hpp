@@ -18,20 +18,16 @@
 
 class PhoneBook
 {
-//Methodes:
-
     public:
 
-    PhoneBook() ;//constructeur
-    ~PhoneBook(); //destructeur
+    PhoneBook();
+    ~PhoneBook();
 
-    int     getPhoneBookSize();
     void    addContacts();
     void    displayContacts();
+	void   	searchContacts();
     int     validIndex(void);
-    void   searchContacts();
 
-//Attributs  (toujours prive - encapsulation):
     private:
 
     Contact m_contacts[8];
