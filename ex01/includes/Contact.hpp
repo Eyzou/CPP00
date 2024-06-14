@@ -16,7 +16,8 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-# include <iostream>
+# include "../includes/main.hpp"
+
 # include <string>
 
 class Contact
@@ -26,8 +27,15 @@ class Contact
 //Methodes:
     Contact(); //constructeur
     ~Contact(); //destructeur
-    std::string getInputs(std::string question);
+    std::string getInputsName(std::string question);
+    std::string getInputsNumber(std::string question);
 	void setInfos();
+    void setIndex(int index);
+
+    //void view(int index);
+    void display(int index);
+    void searchContacts();
+
 	std::string getFirstName();
     std::string getLastName();
     std::string getNickName();
@@ -44,6 +52,7 @@ class Contact
     std::string m_nickName;
     std::string m_phoneNumber;
     std::string m_darkestSecret;
+    int       m_index;
 
 };
 

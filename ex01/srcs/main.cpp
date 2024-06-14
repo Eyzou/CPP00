@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Contact.hpp"
-#include "../includes/PhoneBook.hpp"
+# include "../includes/main.hpp"
 
-#include <string>
 
 int main (int argc, char **argv)
 {
@@ -22,21 +20,15 @@ int main (int argc, char **argv)
 
 	input = argv[1];
 	
-    while(1)
+    while(input.compare("EXIT"))
     {
         if(input.compare("ADD") == 0)
-        {
 			phonebook.addContacts();
-        }
         else if(input.compare("SEARCH") == 0)
-        {
-			phonebook.displayContacts();
-        }
-		else if(input.compare("EXIT") == 0)
-		{
-			std::cout << "See you later!" << std::endl;
-			return(EXIT_SUCCESS);
-		}
+			phonebook.searchContacts();
+		std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
+    	std::cin >> input;
     }
+	std::cout << "Ciao PhoneBook! See you later!" << std::endl;
 	return(EXIT_SUCCESS);
 }

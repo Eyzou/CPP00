@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/PhoneBook.hpp"
-#include "../includes/Contact.hpp"
+# include "../includes/main.hpp"
 
 PhoneBook::PhoneBook()
 {
@@ -29,20 +28,40 @@ PhoneBook::~PhoneBook()
 void    PhoneBook::addContacts()
 {
 	int i = 0 ;
-	this-> contacts[i%8].setInfos();
+	this-> m_contacts[i%8].setInfos();
+	this-> m_contacts[i%8].setIndex(i%8);
 	i++;
 }
 
-void   PhoneBook::displayContacts()
+/*void   PhoneBook::displayContacts()
 {
 	for(int i = 0; i < 8 ; i++)
 	{
-		std::cout << contacts[i].getFirstName();
-		std::cout << contacts[i].getLastName();
-		std::cout << contacts[i].getNickName();
-		std::cout << std::endl;
+		this->m_contacts[i].view(i);
 	}
+}*/
+
+int    PhoneBook::validIndex(void)
+{
+	int input = -1;
+	bool valid = false;
+	while(!valid)
+	{
+		std::cout << "Please enter the index of the contact:" << std::endl;
+		std::cin>> input;
+		if(std::cin.good() && (input >= 0 && input < 8))
+			valid = true;
+		else
+		{
+		std::cin.clear();
+		std::cout << "Invalid index, please try again" << std::endl;
+		}
+	}
+	return(input);
 }
 
-void    PhoneBook::exitPhoneBook()
-{}
+void   PhoneBook::searchContacts()
+{
+	int i = this->validIndex();
+	this->m_contacts[i].display(i);
+}

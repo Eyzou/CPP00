@@ -13,10 +13,8 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include <iostream>
-# include <string>
-
-# include "Contact.hpp"
+# include "../includes/main.hpp"
+# include "../includes/Contact.hpp"
 
 class PhoneBook
 {
@@ -30,12 +28,13 @@ class PhoneBook
     int     getPhoneBookSize();
     void    addContacts();
     void    displayContacts();
-    void    exitPhoneBook();
+    int     validIndex(void);
+    void   searchContacts();
 
 //Attributs  (toujours prive - encapsulation):
     private:
 
-    Contact contacts[8];
+    Contact m_contacts[8];
 };
 
 #endif
