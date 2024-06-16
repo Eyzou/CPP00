@@ -6,7 +6,8 @@ FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 INCLUDES = Account.hpp
 
-SRCS = 	Account.cpp
+SRCS = 	Account.cpp\
+		tests.cpp
 
 OBJ = $(SRCS:%.cpp=%.o)
 
