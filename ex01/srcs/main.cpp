@@ -6,7 +6,7 @@
 /*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:36:43 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/13 14:45:21 by ehamm            ###   ########.fr       */
+/*   Updated: 2024/06/18 11:46:38 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int main (int argc, char **argv)
         	std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
         	std::cin >> input;
 	    }
-	std::cout << "Ciao PhoneBook! See you later!" << std::endl;
+	std::cout << "Ciao PhoneBook! Your contacts are gone forever! See you later!" << std::endl;
 	return(EXIT_SUCCESS);
 }

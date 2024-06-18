@@ -6,7 +6,7 @@
 /*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:18:57 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/13 14:43:12 by ehamm            ###   ########.fr       */
+/*   Updated: 2024/06/18 11:42:46 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ int    PhoneBook::validIndex(void)
 			valid = true;
 		else
 		{
-		std::cin.clear();
-		std::cout << "Invalid index, please try again" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+			std::cout << "Invalid index, please try again" << std::endl;
 		}
 	}
 	return(input);

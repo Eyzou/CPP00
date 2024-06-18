@@ -6,7 +6,7 @@
 /*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:16:25 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/13 14:39:29 by ehamm            ###   ########.fr       */
+/*   Updated: 2024/06/18 11:43:52 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ std::string   Contact::getInputs(std::string question,std:: function<bool(char)>
 
 void	Contact::setInfos()
 {
-	std::cin.ignore(); // a utiliesr pour cleaner le stdinput des input precedents super useful!!
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	this-> m_firstName = this->getInputs("Please enter your First Name:", ::isalpha);
 	this-> m_lastName = this->getInputs("Please enter your Last Name:", ::isalpha);
 	this-> m_nickName = this->getInputs("Please enter your Nickmame:", ::isalpha);
