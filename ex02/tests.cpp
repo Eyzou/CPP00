@@ -12,6 +12,10 @@
 #include <functional>
 #include "Account.hpp"
 
+//std::vector<Account::t> - vector are dynamic array.
+//std::pair<accounts_t::iterator, ints_t::iterator> - structure avec 2 objets differents
+// deux iterateurs pour parcourir ces conteneurs
+
 
 int		main( void ) {
 
