@@ -8,12 +8,7 @@ SRCS = megaphone.cpp
 
 OBJ = $(SRCS:%.cpp=%.o)
 
-ifeq ($(OS),Windows_NT)
-    RM = del /Q
-    RMDIR = rmdir /S /Q
-else
-    RM = rm -f
-endif
+RM = rm -f
 
 all: ${NAME}
 

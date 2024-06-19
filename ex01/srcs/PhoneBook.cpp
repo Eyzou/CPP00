@@ -6,7 +6,7 @@
 /*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:18:57 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/18 11:42:46 by ehamm            ###   ########.fr       */
+/*   Updated: 2024/06/19 10:12:47 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int    PhoneBook::validIndex(void)
 	{
 		std::cout << "Please enter the index of the contact:" << std::endl;
 		std::cin>> input;
+		if (!std::cin.good())
+				exit (0);
 		if(std::cin.good() && (input >= 0 && input < 8))
 			valid = true;
 		else

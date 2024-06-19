@@ -6,7 +6,7 @@
 /*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:36:43 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/18 11:46:38 by ehamm            ###   ########.fr       */
+/*   Updated: 2024/06/19 10:10:57 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int main (int argc, char **argv)
 		input = argv[1];
 	while(input.compare("EXIT"))
 	   {
-			/*if(input.empty())
-				std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;*/
+			if (!std::cin.good())
+				exit (0);
 	        if(input.compare("ADD") == 0)
 				phonebook.addContacts();
 	        else if(input.compare("SEARCH") == 0)
