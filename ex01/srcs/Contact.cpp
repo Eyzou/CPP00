@@ -6,7 +6,7 @@
 /*   By: ehamm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:16:25 by marvin            #+#    #+#             */
-/*   Updated: 2024/06/19 10:09:40 by ehamm            ###   ########.fr       */
+/*   Updated: 2024/06/19 10:41:20 by ehamm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ std::string   Contact::getInputs(std::string question,std:: function<bool(char)>
     {
         std::cout << question << std::endl;
         std::getline(std::cin, input);
-
 		if (!std::cin.good())
 			exit (0);
         bool isValid = true;
@@ -45,7 +44,7 @@ std::string   Contact::getInputs(std::string question,std:: function<bool(char)>
             valid = true;
         else
         {
-            std::cin.clear(); //reset the error flags of the input stream
+            std::cin.clear();
             std::cout <<"Invalid input, please try again" << std::endl;
         }
     }

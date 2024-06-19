@@ -2,7 +2,7 @@ NAME = Account
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -g -std=c++98
+FLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 INCLUDES = Account.hpp
 

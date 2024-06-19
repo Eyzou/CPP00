@@ -2,7 +2,7 @@ NAME = PhoneBook
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -g -std=c++98
+FLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 INCLUDES = 	include/Contact.hpp \
 			include/PhoneBook.hpp
@@ -17,7 +17,7 @@ RM = rm -f
 
 all: ${NAME}
 
-srcs/%.o: %.cpp
+%.o: srcs/%.cpp
 	$(CC) $(FLAGS) $(INCLUDES) -O2 -c $< -o $< -o $(<:%.cpp=%.o)
 
 $(NAME): $(OBJ)
